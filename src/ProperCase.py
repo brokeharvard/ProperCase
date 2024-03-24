@@ -199,10 +199,30 @@ def Get_ProperCase(keyword: str, googlesearch_depth=50, googlesearch_pause=0.5, 
 	return propercase_keyword
 
 if __name__ == "__main__":
-	# Test:
+
+	### EXPLANATORY EXAMPLES AND COMMENTS ###
+
+	# Example 1 (Using Keyword Already in Capitalization Database)
 	keyword = "mcdonald\'s"
-	propercase_keyword = Get_ProperCase(keyword, googlesearch_depth=50, googlesearch_pause=0.5,
-	                                    retry_get_upon_error=False, silent=False, multithread=True)
+	PC_keyword = Get_ProperCase(                            # Get_ProperCase's output is a string (keyword with proper capitalization)
+								keyword,                    # Str: keyword of which the user wants to determine the proper capitalization)
+								googlesearch_depth=50,      # Int: Number of Google search results to review (if keyword # not in capitalization database); default is 50
+								googlesearch_pause=0.5,     # Float/Int: Number of seconds between Google search queries (if necessary); default is 0.5
+								retry_get_upon_error=False, # Bool: Whether to retry URL if first attempt results in error; default is False (no)
+								silent=False,               # Bool: Whether to create logs and print important log messages to standard out; default is False (not silent--creates logs and prints important log messages)
+								multithread=True            # Bool: Whether to use multithreading for obtaining text of URLs; default is True (yes)
+								)
+
+	# Example 2 (Using Keyword Not Found in Capitalization Database)
+	keyword = "deadmau5"
+	PC_keyword = Get_ProperCase(                            # Get_ProperCase's output is a string (keyword with proper capitalization)
+								keyword,                    # Str: keyword of which the user wants to determine the proper capitalization)
+								googlesearch_depth=50,      # Int: Number of Google search results to review (if keyword # not in capitalization database); default is 50
+								googlesearch_pause=0.5,     # Float/Int: Number of seconds between Google search queries (if necessary); default is 0.5
+								retry_get_upon_error=False, # Bool: Whether to retry URL if first attempt results in error; default is False (no)
+								silent=False,               # Bool: Whether to create logs and print important log messages to standard out; default is False (not silent--creates logs and prints important log messages)
+								multithread=True            # Bool: Whether to use multithreading for obtaining text of URLs; default is True (yes)
+								)
 
 
 
